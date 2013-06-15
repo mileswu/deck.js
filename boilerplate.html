@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html style="overflow: hidden">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=1024, user-scalable=no">
 
-	<title>Your deck.js Presentation</title>
+	<title></title>
 	
 	<!-- Required stylesheet -->
 	<link rel="stylesheet" href="core/deck.core.css">
@@ -16,33 +15,81 @@
 	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
 	<link rel="stylesheet" href="extensions/status/deck.status.css">
 	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
-	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
 
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
 	<link rel="stylesheet" href="themes/style/web-2.0.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
-	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
-	
+	<!--<link rel="stylesheet" href="themes/transition/horizontal-slide.css">-->
+	<link rel="stylesheet" href="themes/transition/fade.css">
+		
 	<!-- Required Modernizr file -->
 	<script src="modernizr.custom.js"></script>
+	
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		  "HTML-CSS": {
+		    availableFonts: [],
+		    webFont: "TeX"
+		  }
+		});
+  	</script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	
+	<style>
+		.deck-container .slide {
+			width: 100%; height: 100%; /* to get a proper filling of the parent */
+			min-width:0; min-height:0; /* undoing some hurting style */
+			overflow: hidden; /* don't show slides outside of their box */
+		}
+		h2 {
+			font-size: 150%!important;
+		}
+
+		img.plot {
+			border-style: solid;
+			border-width: 2px;
+			border-color: rgb(120,120,120);
+			box-shadow: 2px 2px 6px #888888;
+		}
+  	</style>
 </head>
 <body class="deck-container">
 
 <!-- Begin slides. Just make elements with a class of slide. -->
 
-<section class="slide">
-	<h1>Slide</h1>
+<section class="slide" style="border">
+	<div class="vcenter">
+  		<h1 style="font-size: 150%">Your title</h1>
+  		<h3 style="margin-top: 50px; font-size: 90%; color: rgb(110, 110, 110);">Miles Wu (University of Chicago)<br/>May 2013</h3>
+	</div>
 </section>
 
 <section class="slide">
-	<h1>Content</h1>
+	<h2>Slide example with floating box and image</h2>
+	<div style="width: 330px; float:left; font-size: 70%">
+		<ul>
+		  <li>Content</li>
+		</ul>
+	</div>
+	<div style="float: left; margin-left: 20px; margin-top:50px">
+		<img class="plot" src="yourimage.png" width=350 height=262 />
+	</div>
 </section>
 
 <section class="slide">
-	<h1>Here</h1>
+	<h2>Slide example with table of images</h2>
+	<ul style="font-size: 80%">
+	  <li>More content</li>
+	</ul>
+	<table width=704>
+		<tr>
+			<td align="center"><img class="plot" src="yourimage.png" width=330 height=248 /></td>
+			<td align="center"><img class="plot" src="yourimage.png" width=330 height=248 /></td>
+		</tr>
+	</table>
 </section>
-
 <!-- End slides. -->
 
 
@@ -53,7 +100,7 @@
 <a href="#" class="deck-next-link" title="Next">&#8594;</a>
 
 <!-- deck.status snippet -->
-<p class="deck-status">
+<p class="deck-status" style="margin-right: 25px; margin-bottom: 15px; ">
 	<span class="deck-status-current"></span>
 	/
 	<span class="deck-status-total"></span>
@@ -84,7 +131,7 @@
 <script src="extensions/goto/deck.goto.js"></script>
 <script src="extensions/status/deck.status.js"></script>
 <script src="extensions/navigation/deck.navigation.js"></script>
-<script src="extensions/scale/deck.scale.js"></script>
+<script src="extensions/fit/deck.fit.js"></script>
 
 <!-- Initialize the deck. You can put this in an external file if desired. -->
 <script>
